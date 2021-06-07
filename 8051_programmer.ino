@@ -6,7 +6,7 @@
 /*********************************************************************************************************/
 /*                                                                                                       */
 /* Author: SYEED MOHD AMEEN                                                   Date: 31-05-2021           */
-/* Emil:   ameensyeed2@gmail.com                                                                         */
+/* Email:   ameensyeed2@gmail.com                                                                         */
 /*                                                                                                       */
 /*        THIS IS THE SIMPLE BIT BAGGING IMPLEMENTATION OF 8051 PROGRAMMER (AT89S51 | AT89S52)           */
 /*********************************************************************************************************/
@@ -259,9 +259,11 @@ byte send_spi(byte instruction)
 /**************************************************************************************************************************************************/
 byte program_enable(void)
 {
-  send_spi(PROGRAM_EN0);
-  send_spi(PROGRAM_EN1);
-  send_spi(PROGRAM_EN2);
+  byte temp;
+
+  temp = send_spi(PROGRAM_EN0);
+  temp = send_spi(PROGRAM_EN1);
+  temp = send_spi(PROGRAM_EN2);
   return (send_spi(PROGRAM_EN3));
 }
 
@@ -302,7 +304,7 @@ byte read_byte(int address)
 /**************************************************************************************************************************************************/
 void write_byte(int address, byte data)
 {
-  byte addrH = address & 0xff;
+  byte addrH = address & 0xff00;
   byte addrL = address & 0x00ff;
   byte temp;
   
