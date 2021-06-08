@@ -23,12 +23,9 @@
 - Power-off Flag
 - Fast Programming Time
 - Flexible ISP Programming (Byte and Page Mode)
-- `for more detail refer AT89S51 Microcontroller Datasheet [See DATASHEET]`
 
+### `for more detail refer AT89S51 Microcontroller Datasheet` [See DATASHEET] 
 
+![pin diagram](https://github.com/syeedameen/8051-programmer/blob/main/Documents/pin%20diagram%20.jpg)
 
-
-
-
-
-[See DATASHEET]:https://www.github.com/syeedameen/8051-programmer 
+[See DATASHEET]:https://github.com/syeedameen/8051-programmer/raw/main/Documents/datasheet.pdf
