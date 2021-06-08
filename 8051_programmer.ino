@@ -6,7 +6,7 @@
 /*********************************************************************************************************/
 /*                                                                                                       */
 /* Author: SYEED MOHD AMEEN                                                   Date: 31-05-2021           */
-/* Email:   ameensyeed2@gmail.com                                                                         */
+/* Email:   ameensyeed2@gmail.com                                                                        */
 /*                                                                                                       */
 /*        THIS IS THE SIMPLE BIT BAGGING IMPLEMENTATION OF 8051 PROGRAMMER (AT89S51 | AT89S52)           */
 /*********************************************************************************************************/
@@ -38,27 +38,29 @@
 
 
 
-/************************************************************************************************************************************************************ */                                                                                                                                              
-/*                                          PROGRAMMING THE FLASH - SERIAL MODE                                                                               */                                                                                                                                                                                                                                                   
-/*                                                                                                                                                            */                                            
-/* Working of serial programming is based on the datasheet specifications of Atmel AT89S51                                                                    */                                                                                            
-/* Datasheet (http://www.keil.com/dd/docs/datashts/atmel/at89s51_ds.pdf)                                                                                      */                                                                          
-/*                                                                                                                                                            */   
-/*                                                                                                                                                            */    
-/* The Code memory array can be programmed using the serial ISP interface while RST is                                                                        */                                                                                        
-/* pulled to VCC. The serial interface consists of pins SCK, MOSI (input) and MISO (output). After                                                            */                                                                                                    
-/* RST is set high, the Programming Enable instruction needs to be executed first before other                                                                */                                                                                                
-/* operations can be executed. Before a reprogramming sequence can occur, a Chip Erase                                                                        */                                                                                        
-/* operation is required.                                                                                                                                     */                        
-/*                                                                                                                                                            */    
-/* The Chip Erase operation turns the content of every memory location in the Code array into FFH.                                                            */                                                                                                     
-/* Either an external system clock can be supplied at pin XTAL1 or a crystal needs to be connected                                                            */                                                                                              
-/* across pins XTAL1 and XTAL2. The maximum serial clock (SCK) frequency should be less than 1/16 of the crystal frequency.                                   */                                                                                                                          
-/* With a 33 MHz oscillator clock, the maximum SCK frequency is 2 MHz.                                                                                        */                                                                      
-/*                                                                                                                                                            */    
-/*                                                                                                                                                            */    
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------*/                                                                                                                                    
-/*                                      SERIAL PROGRAMMING ALGORITHM                                                                                          */                                
+/***************************************************************************************************************************/                                                                                                                                       
+/*                                          PROGRAMMING THE FLASH - SERIAL MODE                                            */                                                                                                                                                                                                                                                   
+/*                                                                                                                         */                                            
+/* Working of serial programming is based on the datasheet specifications of Atmel AT89S51                                 */                                                                                            
+/* Datasheet (http://www.keil.com/dd/docs/datashts/atmel/at89s51_ds.pdf)                                                   */                                                                          
+/*                                                                                                                         */   
+/*                                                                                                                         */    
+/* The Code memory array can be programmed using the serial ISP interface while RST is                                     */                                                                                        
+/* pulled to VCC. The serial interface consists of pins SCK, MOSI (input) and MISO (output). After                         */                                                                                                    
+/* RST is set high, the Programming Enable instruction needs to be executed first before other                             */                                                                                                
+/* operations can be executed. Before a reprogramming sequence can occur, a Chip Erase                                     */                                                                                        
+/* operation is required.                                                                                                  */                        
+/*                                                                                                                         */    
+/* The Chip Erase operation turns the content of every memory location in the Code array into FFH.                         */                                                                                                     
+/* Either an external system clock can be supplied at pin XTAL1 or a crystal needs to be connected                         */                                                                                              
+/* across pins XTAL1 and XTAL2. The maximum serial clock (SCK) frequency should be less than 1/16 of the crystal frequency.*/                                                                                                                          
+/* With a 33 MHz oscillator clock, the maximum SCK frequency is 2 MHz.                                                     */                                                                      
+/*                                                                                                                         */    
+/*                                                                                                                         */    
+/*-------------------------------------------------------------------------------------------------------------------------*/ 
+
+/**************************************************************************************************************************************************************/
+/*                                                       SERIAL PROGRAMMING ALGORITHM                                                                         */                                
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------*/                                                                                                                                    
 /*                                                                                                                                                            */
 /*                                                                                                                                                            */
@@ -229,9 +231,9 @@ void loop()
   
 }
 
-/**************************************************************************************************************************************************/
-/*                                                Function for Data Thourgh SPI Communication BUS                                                 */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                  Function for Data Thourgh SPI Communication BUS                         */
+/********************************************************************************************/
 byte send_spi(byte instruction)
 {
   byte bit_order;                 
@@ -254,9 +256,9 @@ byte send_spi(byte instruction)
   return return_value;
 }
 
-/**************************************************************************************************************************************************/
-/*                                                Function for Data Thourgh SPI Communication BUS                                                 */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                  Function for Data Transfer through SPI Communication                    */
+/********************************************************************************************/
 byte program_enable(void)
 {
   byte temp;
@@ -267,10 +269,9 @@ byte program_enable(void)
   return (send_spi(PROGRAM_EN3));
 }
 
-
-/**************************************************************************************************************************************************/
-/*                                                        CHIP ERASE FUNCTION                                                                     */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                              CHIP Erase Function                                         */
+/********************************************************************************************/
 byte chip_erase()
 {
   byte temp;
@@ -282,9 +283,9 @@ byte chip_erase()
   delay(DELAY_ERASE_MS);
 }
 
-/**************************************************************************************************************************************************/
-/*                                                    FUNCTION THAT READ THE BYTE FROM ADDRESS                                                    */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                      Function that read the byte from address                            */
+/********************************************************************************************/
 byte read_byte(int address)
 {
   /* 16-bit address divided into two bytes */
@@ -299,9 +300,9 @@ byte read_byte(int address)
   return (send_spi(DONT_CARE)); 
 }
 
-/**************************************************************************************************************************************************/
-/*                                                      WRITE BYTE DATA FROM ADDRESS                                                              */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                            Write byte data from address                                  */  
+/********************************************************************************************/
 void write_byte(int address, byte data)
 {
   byte addrH = address & 0xff00;
@@ -314,9 +315,9 @@ void write_byte(int address, byte data)
   temp = send_spi(data);
 }
 
-/**************************************************************************************************************************************************/
-/*                                                         WRITE LOCKS BIT                                                                        */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                                 Write Lock bits                                          */
+/********************************************************************************************/
 void write_lockbits(byte bits)
 {
   byte temp;
@@ -327,9 +328,9 @@ void write_lockbits(byte bits)
   temp = send_spi(WRITE_LOCK_BITS_4); 
 }
 
-/**************************************************************************************************************************************************/
-/*                                                        READ LOCKS BITS                                                                         */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                                  Read Lock bits                                          */
+/********************************************************************************************/
 byte read_lockbits(void)
 {
   byte temp;
@@ -345,9 +346,9 @@ byte read_lockbits(void)
   return (temp);
 }
 
-/**************************************************************************************************************************************************/
-/*                                                        READ SIGNATURE BYTES                                                                    */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                              Read Signature bytes                                        */
+/********************************************************************************************/
 byte read_signature(byte address)
 {
   byte temp;
@@ -360,10 +361,9 @@ byte read_signature(byte address)
   return temp;
 }
 
-/**************************************************************************************************************************************************/
-/*                                          PRINT THE CONTENTS OF FLASH MEMORY ON THE SERIAL PLOTTER                                              */
-/**************************************************************************************************************************************************/
-void print_contents(int limit) 
+/********************************************************************************************/
+/*              Print the content of flash memory on the serial Plotter                     */
+/********************************************************************************************/
 {
   for (int base=0; base<=limit; base+=16) 
   {
@@ -385,9 +385,9 @@ void print_contents(int limit)
   }
 }
 
-/**************************************************************************************************************************************************/
-/*                                          PROCEDURE TO CONVERT THE HEXADECIMAL NUMBER INTO DECIMAL                                              */
-/**************************************************************************************************************************************************/
+/********************************************************************************************/
+/*                  Function to convert the hexadecimal number into decimal                 */
+/********************************************************************************************/
 byte hex_dec(byte number)
 {
   if (number >= '0' && number <= '9')
