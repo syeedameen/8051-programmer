@@ -24,6 +24,10 @@
 - Fast Programming Time
 - Flexible ISP Programming (Byte and Page Mode)
 
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=syeedameen.8051-programmer)
+  
+
+
 ### `for more detail refer AT89S51 Microcontroller Datasheet` [See DATASHEET] 
 
 ![pin diagram](https://github.com/syeedameen/8051-programmer/blob/main/Documents/pin%20diagram%20.jpg)
