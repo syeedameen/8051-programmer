@@ -1,5 +1,6 @@
 # 8051 programmer 
- 8051 programer using arduino (for AT89S51 & AT89S52 Chip)
+ 8051 programer using arduino (for AT89S51 & AT89S52 Chip) 
+ * Programmer implemented using bit banging process. 
 
 #### The AT89S51 is a low-power, high-performance CMOS 8-bit microcontroller with 4K bytes of in-system programmable Flash memory  
 
