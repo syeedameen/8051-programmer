@@ -26,7 +26,7 @@
 - Flexible ISP Programming (Byte and Page Mode)
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=syeedameen.8051-programmer)
-  
+ <img src= "./Documents/logic_analyzer_test_2.jpg" />
 
 
 ### `for more detail refer AT89S51 Microcontroller Datasheet` [See DATASHEET] 
