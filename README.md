@@ -26,7 +26,15 @@
 - Flexible ISP Programming (Byte and Page Mode)
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=syeedameen.8051-programmer)
- <img src= "./Documents/logic_analyzer_test_2.jpg" />
+ 
+ ![Logic Analyzer](https://github.com/syeedameen/syeedameen.github.io/blob/main/assets/images/Ameen.jpg)
+ 
+ ![Logic Analyzer test 2](https://github.com/syeedameen/8051-programmer/blob/main/Documents/logic%20analyzer%20test.jpg)
+
+ ![Reading & Writing EEPROM](https://github.com/syeedameen/8051-programmer/blob/main/Documents/Reading%20%26%20writing%20EEPROM.jpg)
+
+ ![Dump Mempry Content](https://github.com/syeedameen/8051-programmer/blob/main/Documents/dump%20memory%20content.jpg)
+ 
 
 
 ### `for more detail refer AT89S51 Microcontroller Datasheet` [See DATASHEET] 
