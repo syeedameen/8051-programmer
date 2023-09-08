@@ -27,7 +27,7 @@
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=syeedameen.8051-programmer)
  
- ![Logic Analyzer](https://github.com/syeedameen/syeedameen.github.io/blob/main/assets/images/Ameen.jpg)
+ ![Logic Analyzer]([https://github.com/syeedameen/syeedameen.github.io/blob/main/assets/images/Ameen.jpg](https://github.com/syeedameen/8051-programmer/blob/main/Documents/logic_analyzer_test_2.jpg))
  
  ![Logic Analyzer test 2](https://github.com/syeedameen/8051-programmer/blob/main/Documents/logic%20analyzer%20test.jpg)
 
